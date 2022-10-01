@@ -1,0 +1,33 @@
+
+<section class="hero is-fullheight is-black is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="spinner spinner-border is-size-1" *ngIf="isAppendFetch | async"></div>
+            <p class="heading is-size-1" *ngIf="(isAppendFetchSuccess | async) && (position | async)! > 0" @enterPositionFromUp>position</p>
+            <br>
+            <p class="title is-size-1" *ngIf="(isAppendFetchSuccess | async) && (position | async)! > 0" @enterPositionFromDown>
+                {{ position | async }}
+            </p>
+            <p class="title" *ngIf="(position | async) == 0">Your turn </p>
+            <img *ngIf="(position | async) == 0" src="{{ 'https://qr.bethenext.one/line/dangerous/' + (token | async)  }}" />
+
+        </div>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered" *ngIf="isPositionError | async">
+            <p class="title" >
+                {{ positionError | async | json }}
+              </p>
+            <button mat-button (click)="back()">Join the back row</button>
+        </div>
+    </div>
+
+    <div class="hero-foot p-6">
+      <div class="container has-text-centered">
+          <a href="{{ (jump | async) }}" *ngIf="(jump | async) && (position | async)! > 0" class="subtitle" >
+                {{ 'Jump to position ' + (jumpPosition | async) + ' in the queue for € ' + (jumpFee | async) }}
+          </a>
+    </div>
+    </div>
+
+</section>

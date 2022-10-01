@@ -1,0 +1,11 @@
+<section class="hero is-fullheight is-dark is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="spinner spinner-border-is-size-1" *ngIf="isFetch | async">
+            </div>
+            <p class="title" *ngIf="isFetchError | async">
+                {{ fetchError | async | json }}
+            </p>
+        </div>
+    </div>
+</section>

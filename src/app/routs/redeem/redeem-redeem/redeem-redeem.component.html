@@ -1,0 +1,25 @@
+<section class="hero is-fullheight is-black is-bold">
+    <div class="hero-head p-6">
+        <div class="container has-text-centered">
+            <p class="heading">
+                queue length
+            </p>
+            <p class="title">
+                {{ queueLength | async }}
+            </p>
+        </div>
+    </div>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <button class="has-text-black" *ngIf="!(isFetchNextCustomer | async)" mat-raised-button color="primary" style="width:100%" (click)="next()">
+                next customer
+            </button>
+            <div class="spinner spinner-border" *ngIf="isFetchNextCustomer | async"></div>
+        </div>
+    </div>
+    <div class="hero-foot">
+        <div class="container has-text-centered">
+            <button mat-button (click)="refresh()">refresh</button>
+        </div>
+    </div>
+</section>

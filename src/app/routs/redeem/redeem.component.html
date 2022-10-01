@@ -1,0 +1,21 @@
+<section class="hero is-fullheight is-black is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">Login</p>
+            <mat-form-field style="width:100%">
+                <input placeholder="Username" matInput [formControl]="usernameFormControl" [(ngModel)]="username" />
+            </mat-form-field>
+            <mat-form-field style="width:100%">
+                <input placeholder="Password" type="password" matInput [formControl]="passwordFormControl" [(ngModel)]="password" />
+                <button color="primary" mat-button matSuffix (click)="login()">login</button>
+                <div class="spinner spinner-border spinner-border-sm" *ngIf="isFetchLogin | async" matSuffix></div>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="hero-foot p-6">
+        <div class="container has-text-centered">
+            <p class="heading">download</p>
+            <p class="title">Android app (soon)</p>
+        </div>
+    </div>
+</section>
